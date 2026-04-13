@@ -113,7 +113,7 @@ export default function Hero() {
 
                 {/* CTA Button */}
                 <motion.a
-                    href="#registro"
+                    href="https://app.hackertech.com.ar/register"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
