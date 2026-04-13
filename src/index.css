@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════
+   HACKERTECH — Cyber-Modern Design System
+   ═══════════════════════════════════════════════════ */
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+  --font-inter: "Inter", sans-serif;
+  --font-chakra: "Chakra Petch", sans-serif;
+  --font-digital: "Share Tech Mono", monospace;
+
+  --color-deep-navy: #000000;
+  --color-dark-surface: #0a0a0a;
+  --color-card-bg: #0a0a0a;
+  --color-electric-blue: #00ff00;
+  --color-neon-violet: #39ff14;
+  --color-cyber-purple: #00cc00;
+  --color-violet-glow: #00ff00;
+  --color-soft-white: #cccccc;
+  --color-muted-gray: #666666;
+  --color-accent-green: #39ff14;
+}
+
+/* ── Base ────────────────────────────────────────── */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter);
+  background: var(--color-deep-navy);
+  color: var(--color-soft-white);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-neon-violet);
+  color: #000000;
+}
+
+/* ── Custom Scrollbar ────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-cyber-purple), var(--color-neon-violet));
+  border-radius: 3px;
+}
+
+/* ── Gradient Title ───────────────────────────────── */
+.gradient-title {
+  background: linear-gradient(135deg, var(--color-neon-violet) 0%, var(--color-cyber-purple) 30%, var(--color-electric-blue) 70%, var(--color-accent-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(57, 255, 20, 0.4)) drop-shadow(0 0 60px rgba(0, 255, 0, 0.2));
+}
+
+/* ── Digital Glow (Countdown) ────────────────────── */
+.digital-glow {
+  color: var(--color-electric-blue);
+  text-shadow:
+    0 0 10px rgba(0, 212, 255, 0.8),
+    0 0 20px rgba(0, 212, 255, 0.6),
+    0 0 40px rgba(0, 212, 255, 0.4),
+    0 0 80px rgba(0, 212, 255, 0.2);
+  animation: digital-pulse 2s ease-in-out infinite;
+}
+
+@keyframes digital-pulse {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 10px rgba(0, 212, 255, 0.8),
+      0 0 20px rgba(0, 212, 255, 0.6),
+      0 0 40px rgba(0, 212, 255, 0.4),
+      0 0 80px rgba(0, 212, 255, 0.2);
+  }
+
+  50% {
+    text-shadow:
+      0 0 15px rgba(0, 212, 255, 1),
+      0 0 30px rgba(0, 212, 255, 0.8),
+      0 0 60px rgba(0, 212, 255, 0.5),
+      0 0 100px rgba(0, 212, 255, 0.3);
+  }
+}
+
+/* ── Glitch Effect ───────────────────────────────── */
+.glitch {
+  position: relative;
+  animation: glitch-skew 4s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-neon-violet), var(--color-electric-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glitch::before {
+  animation: glitch-before 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.glitch::after {
+  animation: glitch-after 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-before {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(3px, -1px);
+  }
+
+  60% {
+    transform: translate(-1px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -3px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-after {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(3px, -2px);
+  }
+
+  40% {
+    transform: translate(-2px, 3px);
+  }
+
+  60% {
+    transform: translate(2px, -1px);
+  }
+
+  80% {
+    transform: translate(-3px, 2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  2% {
+    transform: skew(0.5deg);
+  }
+
+  4% {
+    transform: skew(0deg);
+  }
+
+  48% {
+    transform: skew(0deg);
+  }
+
+  50% {
+    transform: skew(-0.5deg);
+  }
+
+  52% {
+    transform: skew(0deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+/* ── Glow Button ─────────────────────────────────── */
+.glow-btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-electric-blue), var(--color-neon-violet), var(--color-electric-blue));
+  background-size: 300% 300%;
+  animation: glow-shift 3s ease infinite;
+}
+
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--color-dark-surface);
+}
+
+@keyframes glow-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ── Matrix Rain ─────────────────────────────────── */
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  font-family: var(--font-jetbrains);
+  font-size: 14px;
+  color: var(--color-neon-violet);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  animation: matrix-fall linear infinite;
+  opacity: 0.7;
+  text-shadow: 0 0 8px var(--color-violet-glow);
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(200vh);
+  }
+}
+
+/* ── Glass Card ──────────────────────────────────── */
+.glass-card {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(57, 255, 20, 0.6);
+  box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+}
+
+/* ── Timeline ────────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom, var(--color-electric-blue), var(--color-neon-violet), var(--color-electric-blue));
+}
