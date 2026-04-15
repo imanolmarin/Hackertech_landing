@@ -26,7 +26,6 @@ Welcome to the frontend repository for the **HackerTech Landing Page**, an event
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
    cd Hackertech_landing
    ```
 
