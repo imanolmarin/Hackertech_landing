@@ -14,7 +14,7 @@ export default function Footer() {
                 className="text-sm flex items-center justify-center gap-2"
                 style={{ color: 'var(--color-muted-gray)', fontFamily: 'var(--font-jetbrains)' }}
             >
-                {'<'} HackerTech 2026 — UTN
+                {'<'} HackerTech 2026 — UTN-FRC
                 <Heart className="w-4 h-4 inline" style={{ color: 'var(--color-neon-violet)' }} />
                 {' />'}
             </p>

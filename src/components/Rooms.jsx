@@ -6,13 +6,13 @@ import {
 } from 'lucide-react';
 
 const rooms = [
-    { name: 'OSINT', icon: Search, desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.', color: '#eab308', color2: '#000000' },
-    { name: 'SOC & SIEM', icon: ShieldCheck, desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', color: '#3b82f6' },
-    { name: 'Red Team', icon: Swords, desc: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', color: '#ef4444' },
-    { name: 'Malware', icon: Bug, desc: 'Excepteur sint occaecat cupidatat non proident sunt in culpa.', color: 'rgb(24, 97, 22)', color2: 'rgb(91, 24, 97)' },
-    { name: 'Forense', icon: Microscope, desc: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem.', color: '#8b5cf6' },
-    { name: 'DevSecOps', icon: Code2, desc: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.', color: '#f59e0b' },
-    { name: 'Prompt PWNed', icon: TerminalSquare, desc: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit.', color: '#22c55e' },
+    { name: 'OSINT', icon: Search, logo: '/assets/osint.png', desc: 'Sumergite en el centro de operaciones de HackerTech. Explorá el ecosistema de Telegram con técnicas avanzadas de recolección y análisis para rastrear amenazas en tiempo real. Utilizá nuestro arsenal de vanguardia, como OsintSearch, y participá en un CTF inmersivo para ensuciarte las manos con datos.', color: '#eab308', color2: '#000000' },
+    { name: 'SOC & SIEM', icon: ShieldCheck, logo: '/assets/soc_siem (1).png', desc: 'Convertite en un analista SOC. Operá estaciones con SIEM configurado y acceso a logs. Usá playbooks operativos para enfrentar amenazas desde nivel básico hasta extremo. Respondé a incidentes en tiempo real y aplicá herramientas de mitigación para defender el entorno.', color: '#3b82f6' },
+    { name: 'Red Team', icon: Swords, logo: '/assets/red_team.png', desc: 'Un espacio interactivo con demostraciones de ataques reales sobre aplicaciones web, dispositivos físicos y redes inalámbricas. Comprobá cómo la superficie de ataque va mucho más allá del código. Explorá técnicas ofensivas, explotá vulnerabilidades y aprendé a pensar como un atacante para defenderte mejor.', color: '#ef4444' },
+    { name: 'Malware', icon: Bug, logo: '/assets/malware.png', desc: 'Olvidate de la teoría. Vení a ensuciarte las manos con malware real, estaciones de phishing con IA y laboratorios de infiltración. Te damos las herramientas ofensivas para que aprendas a pensar como un atacante. Una experiencia inmersiva explorando el lado más oscuro de la red.', color: 'rgb(24, 97, 22)', color2: 'rgb(91, 24, 97)' },
+    { name: 'Forense', icon: Microscope, logo: '/assets/forense.png', desc: 'Conocé una perspectiva 100% práctica sobre la respuesta a incidentes informáticos. Durante la jornada realizaremos demostraciones en vivo enfocadas en el análisis forense de navegadores, extracción de evidencia en memoria RAM y resolución de casos reales. ¡Vení a descubrir el rastro del atacante!', color: '#8b5cf6' },
+    { name: 'DevSecOps', icon: Code2, logo: '/assets/devsecops.png', desc: 'Entrá al corazón de DevSecOps y descubrí cómo proteger el software en tiempo real. Presenciá demostraciones en vivo de vulnerabilidades, controles de seguridad y defensa de la cadena de suministro en pipelines reales. Si querés aprender a atacar y prevenir, esta room es para vos.', color: '#f59e0b' },
+    { name: 'Prompt PWNed', icon: TerminalSquare, logo: '/assets/pwned.png', desc: 'Las inteligencias artificiales y LLMs revolucionan el mundo, pero no dejan de ser hackeables. Son sirvientes diligentes que, ante todo, quieren complacerte. Vení a comprobar cómo, en las manos de un atacante, manipular estos modelos y abusar de su poder puede ser extremadamente peligroso.', color: '#22c55e' },
 ];
 
 function RoomCard({ room, index }) {
@@ -22,6 +22,11 @@ function RoomCard({ room, index }) {
         ? `linear-gradient(135deg, ${room.color}, ${room.color2})`
         : mainColor;
 
+    const isLast = index === 6;
+    const gridClass = isLast
+        ? "col-span-1 sm:col-span-2 sm:col-start-2 lg:col-span-2 lg:col-start-3"
+        : "col-span-1 sm:col-span-2 lg:col-span-2";
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -29,7 +34,7 @@ function RoomCard({ room, index }) {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -4, borderColor: mainColor, boxShadow: `0 0 20px ${mainColor}40` }}
-            className="glass-card rounded-2xl p-6 sm:p-8 flex flex-col gap-4 group cursor-default transition-all duration-300 relative overflow-hidden"
+            className={`glass-card rounded-2xl p-6 sm:p-8 flex flex-col gap-4 group cursor-default transition-all duration-300 relative overflow-hidden ${gridClass}`}
         >
             {/* Background full-card overlay */}
             <div
@@ -39,8 +44,17 @@ function RoomCard({ room, index }) {
 
             <div className="relative z-10 flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 flex items-center justify-center">
-                        <room.icon className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" style={{ color: mainColor }} />
+                    <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
+                        {room.logo ? (
+                            <img
+                                src={room.logo}
+                                alt={`${room.name} logo`}
+                                className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
+                                style={{ objectFit: 'cover', objectPosition: 'top' }}
+                            />
+                        ) : (
+                            <room.icon className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" style={{ color: mainColor }} />
+                        )}
                     </div>
                     <h3
                         className="text-xl font-bold"
@@ -68,7 +82,7 @@ function EscapeRoomCard() {
             transition={{ duration: 0.6, delay: 0.3 }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="glass-card rounded-2xl p-8 sm:p-10 col-span-1 sm:col-span-2 lg:col-span-3 flex flex-col items-center justify-center text-center gap-6 cursor-pointer relative overflow-hidden"
+            className="glass-card rounded-2xl p-8 sm:p-10 col-span-1 sm:col-span-4 lg:col-span-6 flex flex-col items-center justify-center text-center gap-6 cursor-pointer relative overflow-hidden"
             style={{
                 borderColor: hovered ? 'rgba(147, 51, 234, 0.6)' : 'rgba(0, 212, 255, 0.1)',
                 boxShadow: hovered ? '0 0 60px rgba(147, 51, 234, 0.3), inset 0 0 60px rgba(147, 51, 234, 0.05)' : 'none',
@@ -121,8 +135,7 @@ function EscapeRoomCard() {
                     Escape Room
                 </h3>
                 <p className="text-sm sm:text-base max-w-md" style={{ color: 'var(--color-muted-gray)' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. ¿Podrás escapar a tiempo?
+                    Poné a prueba tus habilidades en nuestro Escape Room. Superá desafíos contrarreloj vulnerando sistemas, explotando fallos de seguridad y aplicando técnicas de hardware hacking para avanzar. Solo tu ingenio y destreza técnica te permitirán resolver los acertijos y escapar a tiempo. ¿Podras hacerlo?
                 </p>
             </div>
         </motion.div>
@@ -155,7 +168,7 @@ export default function Rooms() {
                 </motion.div>
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
                     {rooms.map((room, i) => (
                         <RoomCard key={room.name} room={room} index={i} />
                     ))}

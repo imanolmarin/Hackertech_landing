@@ -48,24 +48,14 @@ export default function About() {
                     className="glass-card rounded-2xl p-8 sm:p-12"
                 >
                     <p className="text-base sm:text-lg leading-relaxed mb-6" style={{ color: 'var(--color-muted-gray)' }}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                    <p className="text-base sm:text-lg leading-relaxed mb-6" style={{ color: 'var(--color-muted-gray)' }}>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                        est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+                        HackerTech no es solo un evento; es la experiencia inmersiva definitiva en el ecosistema de la ciberseguridad. En esta tercera edición subimos la apuesta, preparándote el terreno para que te adentres en las verdaderas profundidades del hacking ético y la seguridad ofensiva.
                     </p>
                     <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--color-muted-gray)' }}>
-                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                        magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                        ipsum quia dolor sit amet, consectetur, adipisci velit.
+                        Olvidate de las conferencias tradicionales. Acá cada sala es un nuevo entorno listo para ser analizado, y cada desafío está diseñado para poner a prueba tu ingenio en tiempo real.
                     </p>
 
                     <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                        {['CTF', 'Workshops', 'Networking', 'Charlas'].map((tag) => (
+                        {['CTF', 'Networking', 'Challenges', 'Escape Room'].map((tag) => (
                             <span
                                 key={tag}
                                 className="px-4 py-2 rounded-full text-sm font-medium"
