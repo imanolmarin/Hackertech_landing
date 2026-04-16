@@ -19,14 +19,37 @@ Welcome to the frontend repository for the **HackerTech Landing Page**, an event
 
 ## ⚙️ Prerequisites
 
-- **Node.js**: Recommended latest LTS version.
-- **npm** or **yarn**.
+- **Docker** and **Docker Compose** (Recommended)
+- **Node.js** (latest LTS) and **npm/yarn** (if running manually)
 
-## 💻 Installation
+## 🐳 Running with Docker (Recommended)
+
+The easiest way to run the HackerTech Landing Page locally is using Docker. This will build an optimized static version and serve it via Nginx.
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
+   cd Hackertech_landing
+   ```
+
+2. **Build and start the container**:
+   ```bash
+   docker compose up --build -d
+   ```
+
+3. **View the site**:
+   Open your browser and navigate to `http://localhost:8080`.
+
+To stop the site and remove the container, run:
+```bash
+docker compose down
+```
+
+## 💻 Manual Installation (Node.js)
+
+If you prefer to run the development server locally without Docker:
+
+1. **Clone the repository**:
+   ```bash
    cd Hackertech_landing
    ```
 
@@ -34,7 +57,6 @@ Welcome to the frontend repository for the **HackerTech Landing Page**, an event
    ```bash
    npm install
    ```
-   *(Note: The `node_modules` directory is ignored by Git).*
 
 3. **Environment Setup**:
    Create a `.env` file based on `.env.example` if available, and set up your environment variables.

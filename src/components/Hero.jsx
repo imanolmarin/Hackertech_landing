@@ -69,7 +69,7 @@ export default function Hero() {
                     className="text-sm sm:text-base uppercase tracking-[0.4em] mb-4"
                     style={{ color: 'var(--color-muted-gray)' }}
                 >
-                    UTN — 22 de Agosto 2026
+                    UTN-FRC — 22 de Agosto 2026
                 </motion.p>
 
                 {/* Glitch Title */}
@@ -113,7 +113,9 @@ export default function Hero() {
 
                 {/* CTA Button */}
                 <motion.a
-                    href="https://app.hackertech.com.ar/register"
+                    href="https://app.hackertech.com.ar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
