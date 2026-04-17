@@ -25,7 +25,7 @@ export default function Hero() {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const targetDate = new Date('2026-08-22T09:00:00-03:00').getTime();
+        const targetDate = new Date('2026-08-22T14:00:00-03:00').getTime();
 
         const tick = () => {
             const now = Date.now();
@@ -103,11 +103,11 @@ export default function Hero() {
                     className="flex items-center gap-4 sm:gap-8 md:gap-12 mb-12"
                 >
                     <CountdownUnit value={timeLeft.days} label="Días" />
-                    <span className="text-3xl sm:text-5xl md:text-6xl" style={{ color: 'var(--color-neon-violet)', fontFamily: 'var(--font-jetbrains)' }}>:</span>
+                    <span className="text-3xl sm:text-2xl md:text-6xl" style={{ color: 'var(--color-neon-violet)', fontFamily: 'var(--font-jetbrains)' }}>:</span>
                     <CountdownUnit value={timeLeft.hours} label="Horas" />
-                    <span className="text-3xl sm:text-5xl md:text-6xl" style={{ color: 'var(--color-neon-violet)', fontFamily: 'var(--font-jetbrains)' }}>:</span>
+                    <span className="text-3xl sm:text-2xl md:text-6xl" style={{ color: 'var(--color-neon-violet)', fontFamily: 'var(--font-jetbrains)' }}>:</span>
                     <CountdownUnit value={timeLeft.minutes} label="Min" />
-                    <span className="text-3xl sm:text-5xl md:text-6xl" style={{ color: 'var(--color-neon-violet)', fontFamily: 'var(--font-jetbrains)' }}>:</span>
+                    <span className="text-3xl sm:text-2xl md:text-6xl" style={{ color: 'var(--color-neon-violet)', fontFamily: 'var(--font-jetbrains)' }}>:</span>
                     <CountdownUnit value={timeLeft.seconds} label="Seg" />
                 </motion.div>
 

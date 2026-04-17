@@ -32,6 +32,16 @@ export default function App() {
         };
     }, []);
 
+    function tjhfsdfgs5() {
+        window.open("https://app.hackertech.com.ar/achievements/d7h2lvvle0vc73bl6se0", "_blank", "noopener,noreferrer")
+        setShowMatrix(false)
+    }
+
+    function jdskhf() {
+        window.open("https://app.hackertech.com.ar/achievements/d7h3cnvle0vc73bl6sf0", "_blank", "noopener,noreferrer")
+        setShowSecret(false)
+    }
+
     return (
         <div className="min-h-screen" style={{ background: 'var(--color-deep-navy)' }}>
             <Hero />
@@ -42,11 +52,11 @@ export default function App() {
             <Footer />
 
             <AnimatePresence>
-                {showMatrix && <MatrixOverlay onDismiss={() => setShowMatrix(false)} />}
+                {showMatrix && <MatrixOverlay onDismiss={() => tjhfsdfgs5()} />}
             </AnimatePresence>
 
             <AnimatePresence>
-                {showSecret && <SecretModal onClose={() => setShowSecret(false)} />}
+                {showSecret && <SecretModal onClose={() => jdskhf()} />}
             </AnimatePresence>
         </div>
     );

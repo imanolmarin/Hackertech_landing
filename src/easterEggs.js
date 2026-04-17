@@ -19,6 +19,7 @@ export function initConsoleFlag() {
        ░░░░░░░░░░░░░░░░▒▒▓▓██  ¡Bienvenido, Hacker!  ██▓▓▒▒░░░░░░░░░░░░░░░░
   
        > Nivel 1 completado.
+       > Obtener logro: https://app.hackertech.com.ar/achievements/d7h2qgnle0vc73bl6seg
        > Flag{UTN_H4CK_2026}
   
        ¿Podés encontrar los otros easter eggs? 👀

@@ -73,7 +73,7 @@ export default function SecretModal({ onClose }) {
                         fontFamily: 'var(--font-orbitron)',
                     }}
                 >
-                    Cerrar
+                    Cerrar y Obtener logro
                 </button>
             </motion.div>
         </motion.div>
