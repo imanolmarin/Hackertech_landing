@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Lock, Unlock, Search, ShieldCheck, Swords,
-    Bug, Microscope, Code2, TerminalSquare
+    Bug, Microscope, Code2, TerminalSquare, ShieldAlert
 } from 'lucide-react';
 
 const rooms = [
@@ -13,6 +13,7 @@ const rooms = [
     { name: 'Forense', icon: Microscope, logo: '/assets/forense.png', desc: 'Conocé una perspectiva 100% práctica sobre la respuesta a incidentes informáticos. Durante la jornada realizaremos demostraciones en vivo enfocadas en el análisis forense de navegadores, extracción de evidencia en memoria RAM y resolución de casos reales. ¡Vení a descubrir el rastro del atacante!', color: '#8b5cf6' },
     { name: 'DevSecOps', icon: Code2, logo: '/assets/devsecops.png', desc: 'Entrá al corazón de DevSecOps y descubrí cómo proteger el software en tiempo real. Presenciá demostraciones en vivo de vulnerabilidades, controles de seguridad y defensa de la cadena de suministro en pipelines reales. Si querés aprender a atacar y prevenir, esta room es para vos.', color: '#f59e0b' },
     { name: 'Prompt PWNed', icon: TerminalSquare, logo: '/assets/pwned.png', desc: 'Las inteligencias artificiales y LLMs revolucionan el mundo, pero no dejan de ser hackeables. Son sirvientes diligentes que, ante todo, quieren complacerte. Vení a comprobar cómo, en las manos de un atacante, manipular estos modelos y abusar de su poder puede ser extremadamente peligroso.', color: '#22c55e' },
+    { name: 'Fraud War', icon: ShieldAlert, logo: '/assets/logo_png_transparente.png', desc: 'Ingresá a una simulación de war room antifraude. Investigá eventos que parecen aislados y descubrí la campaña coordinada detrás. Analizá logs, dispositivos e IPs, ejecutá consultas SQL y diseñá reglas defensivas mientras el atacante adapta su estrategia en tiempo real. Una experiencia donde la ciberseguridad, el análisis de datos y la toma de decisiones se ponen a prueba.', color: '#f97316', color2: '#16a34a' },
 ];
 
 function RoomCard({ room, index }) {
@@ -22,10 +23,7 @@ function RoomCard({ room, index }) {
         ? `linear-gradient(135deg, ${room.color}, ${room.color2})`
         : mainColor;
 
-    const isLast = index === 6;
-    const gridClass = isLast
-        ? "col-span-1 sm:col-span-2 sm:col-start-2 lg:col-span-2 lg:col-start-3"
-        : "col-span-1 sm:col-span-2 lg:col-span-2";
+    const gridClass = "col-span-1 sm:col-span-2 lg:col-span-2";
 
     return (
         <motion.div
@@ -44,13 +42,13 @@ function RoomCard({ room, index }) {
 
             <div className="relative z-10 flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
+                    <div className="w-14 h-14 flex items-center justify-center overflow-hidden">
                         {room.logo ? (
                             <img
                                 src={room.logo}
                                 alt={`${room.name} logo`}
-                                className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
-                                style={{ objectFit: 'cover', objectPosition: 'top' }}
+                                className="w-14 h-14 transition-transform duration-300 group-hover:scale-110"
+                                style={{ objectFit: 'contain' }}
                             />
                         ) : (
                             <room.icon className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" style={{ color: mainColor }} />
